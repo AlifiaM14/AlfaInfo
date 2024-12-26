@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>InfoAlfa</title>
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet"
+        href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.css">
+    <link rel="stylesheet" href="/src/assets/gis/css/L.Control.ZoomBar.css">
+    <link rel="stylesheet" href="/src/assets/gis/css/Control.MiniMap.css">
+    <link rel="stylesheet" href="/src/assets/gis/css/Leaflet.Coordinates-0.1.5.css">
+    <link rel="stylesheet" href="/src/assets/gis/css/leaflet.groupedlayercontrol.css">
+</head>
+
+<body>
+    <div id="main" class="w-full h-full min-h-screen overflow-hidden mx-auto">
+        <!-- NAVBAR START -->
+        <nav id="navbar" class="fixed top-0 w-full backdrop-blur-md z-50">
+            <div class="max-w-[1280px] mx-auto w-full flex justify-between items-center px-[75px] py-[30px]">
+                <div class="w-[175px] shrink-0 overflow-hidden ">
+                    <a href="#"
+                        class="text-red-700 font-bold flex text-2xl hover:text-blue-700 transition-all duration-200">
+                        Info
+                        <span class="text-black hover:text-blue-700 transition-all duration-200">Alfa</span>
+                    </a>
+                </div>
+                <ul class="flex items-center gap-[30px]">
+                    <li>
+                        <a href="/index.html" class="font-medium">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="font-medium">Peta Mitra</a>
+                    </li>
+                    <li>
+                        <a href="/src/pages/promo.html" class="font-medium">Promo</a>
+                    </li>
+                    <li>
+                        <a href="/src/pages/about.html" class="font-medium">About</a>
+                    </li>
+                </ul>
+                <div class="flex gap-[10px] items-center">
+                    <a href="#" class="bg-weserve-maroon rounded-full px-[30px] py-[10px] text-white font-semibold">Sign
+                        In</a>
+                </div>
+            </div>
+        </nav>
+        <!-- NAVBAR END -->
+        <div class="flex flex-col gap-[20px] pt-32">
+            <section id="best-choices" class="max-w-[1280px] w-full overflow-hidden mx-auto">
+                <div class="flex flex-col gap-[30px] px-[75px]">
+                    <h2 class="font-clash-display font-semibold text-[46px] text-center pt-2 pb-4">Peta Mitra di Kota
+                        Bekasi
+                    </h2>
+
+                    <!-- MAPS START -->
+                    <div class="container z-0">
+                        <div id="map" class="mb-5" style="height: 520px;">
+                        </div>
+                    </div>
+                    <!-- MAPS END -->
+
+                    <!-- LOCATION LIST START -->
+                    <h2 class="font-clash-display font-semibold text-[46px] text-center mt-5">Daftar Mitra Alfamart di
+                        Kota Bekasi</h2>
+                    <div class="grid w-full grid-cols-3 gap-x-[30px] gap-y-[40px] mt-5 pb-32 ">
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_1.jpg"
+                                            alt="Alfamart 1" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Vida Bekasi 1</h2>
+                                    <p class="text-sm text-gray-700">Perumahan vida Bekasi No. 6&8, RT.003/RW.016,
+                                        Padurenan, Mustika Jaya, Bekasi, West Java 16340</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.321389</p>
+                                        <p><strong>Longitude:</strong> 107.000233</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> Tempat Duduk, ATM Link,
+                                        Toilet, dan Tempat Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_2.jpg" alt="Alfamart" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Bantar Gebang Setu
+                                    </h2>
+                                    <p class="text-sm text-gray-700">Jl. Bantar Gebang Setu, RT.002/RW.002, Padurenan,
+                                        Kec. Mustika Jaya, Kota Bks, Jawa Barat 17151
+                                    </p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.314792</p>
+                                        <p><strong>Longitude:</strong> 106.997841</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong>Tempat
+                                        Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_3.jpg" alt="Alfamart Jl Macem" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Jl. Macem</h2>
+                                    <p class="text-sm text-gray-700">Jl. Macem, RT.001/RW.005, Padurenan, Kec. Mustika
+                                        Jaya, Kota Bks, Jawa Barat 16340</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.325153</p>
+                                        <p><strong>Longitude:</strong> 107.004314</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> Kursi Duduk, Tempat
+                                        Parkir, dan ATM Link</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_4.jpg" alt="Alfamart Cibitung 4">
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Cibitung 1</h2>
+                                    <p class="text-sm text-gray-700">Jl. Kp. Cibitung, RT.003/RW.004, Padurenan, Kec.
+                                        Mustika Jaya, Kota Bks, Jawa Barat 17156</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.329583</p>
+                                        <p><strong>Longitude:</strong> 107.003462</p>
+                                    </div>
+                                    <br>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> Tempat Parkir, ATM</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_5.jpg" alt="Alfamart 5">
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Bekasi Timur 5</h2>
+                                    <p class="text-sm text-gray-700">Jalan Raya Bekasi Timur Regensi e2 16,
+                                        RT.010/RW.016, Cimuning, Kec. Mustika Jaya, Kota Bks, Jawa Barat 17155</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.323581</p>
+                                        <p><strong>Longitude:</strong> 107.015450</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> ATM (BCA, BRI, MANDIRI,
+                                        ATM Link) dan Tempat Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_6.jpg" alt="Alfamart 6">
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Timur R6</h2>
+                                    <p class="text-sm text-gray-700">Perum, Jl. Raya Bekasi Timur Regensi Ruko Cluster
+                                        Garnet No.10 - 11, RT.004/RW.006, Cimuning, Kec. Mustika Jaya, Kota Bks, Jawa
+                                        Barat 17155</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.326011</p>
+                                        <p><strong>Longitude:</strong> 107.010889</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> Tempat Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_7.jpg"
+                                            alt="Alfamart Jl Raya Bekasi Timur Regensi No.7" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Jl Raya Bekasi Timur Regensi No.7</h2>
+                                    <p class="text-sm text-gray-700">Jl. Raya Bekasi Timur Regensi No.7, RT.001/RW.008,
+                                        Cimuning, Kec. Mustika Jaya, Kota Bks, Jawa Barat 17155</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.327016</p>
+                                        <p><strong>Longitude:</strong> 107.018431</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> Tempat Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_8.jpg"
+                                            alt="Alfamart Jl Raya Bekasi Timur Regensi" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Jl Raya Bekasi Timur Regensi 8</h2>
+                                    <p class="text-sm text-gray-700">Jalan Perum Jl. Raya Bekasi Timur Regensi,
+                                        RT.003/RW.020, Cimuning, Mustika Jaya, Bekasi Regency, West Java 17155</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.321875</p>
+                                        <p><strong>Longitude:</strong> 107.017880</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> ATM Link & Tempat
+                                        Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_9.jpg"
+                                            alt="Alfamart Jl Zamrud Utara" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Jl Zamrud Utara</h2>
+                                    <p class="text-sm text-gray-700">Jl. Zamrud Utara, RT.003/RW.017, Padurenan, Kec.
+                                        Mustika Jaya, Kabupaten Bekasi, Jawa Barat 17156</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.321027</p>
+                                        <p><strong>Longitude:</strong> 107.016927</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> ATM Link, Tempat
+                                        Parkir, dan Kursi Duduk</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_10.jpg"
+                                            alt="Alfamart Perum Dukuh Zamrud Blok F" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Perum Dukuh Zamrud 1
+                                    </h2>
+                                    <p class="text-sm text-gray-700">Perum Dukuh Zamrud Blok F, RT.002/RW.021,
+                                        Padurenan, Kec. Mustika Jaya, Kota Bks, Jawa Barat 17156</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.315825</p>
+                                        <p><strong>Longitude:</strong> 107.020930</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> ATM dan Tempat Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_11.jpg"
+                                            alt="Alfamart Perum Dukuh Zamrud Blok U16 No.106" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Perum Dukuh Zamrud 3</h2>
+                                    <p class="text-sm text-gray-700">Perum Dukuh Zamrud Blok U16 No.106, RT.006/RW.010,
+                                        Cimuning, Kec. Mustika Jaya, Kota Bks, Jawa Barat 17155</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.308697</p>
+                                        <p><strong>Longitude:</strong> 107.026232</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> Tempat Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_12.jpg"
+                                            alt="Alfamart Jl Zamrud Utara RT.001/RW.020" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Jl Zamrud Utara 3
+                                    </h2>
+                                    <p class="text-sm text-gray-700">Jl. Zamrud Utara, RT.001/RW.020, Padurenan, Kec.
+                                        Mustika Jaya, Kota Bks, Jawa Barat</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.309889</p>
+                                        <p><strong>Longitude:</strong> 107.022761</p>
+                                    </div>
+                                    <br>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> Kursi Duduk, Toilet,
+                                        dan ATM Link</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_13.jpg"
+                                            alt="Alfamart Jl Klp. Dua No.12" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Jl Klp. Dua No.12
+                                    </h2>
+                                    <p class="text-sm text-gray-700">Jl. Klp. Dua No.12, RT.002/RW.008, Padurenan, Kec.
+                                        Mustika Jaya, Kota Bks, Jawa Barat 16340</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.306946</p>
+                                        <p><strong>Longitude:</strong> 107.017105</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> ATM Link dan Tempat
+                                        Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_14.jpg"
+                                            alt="Alfamart Jl Raya Asem Jaya" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Jl Raya Asem Jaya
+                                    </h2>
+                                    <p class="text-sm text-gray-700">Jl. Raya Asem Jaya, RT.002/RW.006, Mustika Jaya,
+                                        Kec. Mustika Jaya, Kota Bks, Jawa Barat 17158</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.302927</p>
+                                        <p><strong>Longitude:</strong> 107.019206</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> Tempat Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_15.jpg"
+                                            alt="Alfamart Perum Jl. Graha Harapan No.1 Blok A 10" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Graha Harapan</h2>
+                                    <p class="text-sm text-gray-700">Perum, Jl. Graha Harapan No.1 Blok A 10,
+                                        RT.001/RW.019, Mustika Jaya, Kec. Mustika Jaya, Kota Bks, Jawa Barat 17158</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.303384</p>
+                                        <p><strong>Longitude:</strong> 107.024089</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> ATM Link dan Tempat
+                                        Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_16.jpg"
+                                            alt="Alfamart Jl. Bayan 1 G No.3 Blok G" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Jl. Bayan 1 G</h2>
+                                    <p class="text-sm text-gray-700">Jl. Bayan 1 G No.3 Blok G, RT.004/RW.023, Mustika
+                                        Jaya, Bekasi, West Java 17158</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.297854</p>
+                                        <p><strong>Longitude:</strong> 107.025188</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> Kursi Duduk, Tempat
+                                        Parkir, dan ATM Link</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_17.jpg"
+                                            alt="Alfamart Jl. Klp. Dua No.31" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Jl. Klp. Dua No.31
+                                    </h2>
+                                    <p class="text-sm text-gray-700">Jl. Klp. Dua No.31, RT.002/RW.2, Padurenan, Kec.
+                                        Mustika Jaya, Kota Bks, Jawa Barat 16340</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.312947</p>
+                                        <p><strong>Longitude:</strong> 107.010664</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> ATM BRI dan Tempat
+                                        Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#">
+                            <div
+                                class="flex max-w-[400px] flex-col gap-4 rounded-[20px] pb-4 ring-1 ring-blue-300 transition-all duration-300 hover:ring-blue-700 shadow-md">
+                                <div class="relative">
+                                    <div class="h-[200px] w-full overflow-hidden rounded-t-[20px]">
+                                        <img class="h-full w-full object-cover"
+                                            src="/src/assets/images/alfamart/alfa_18.jpg"
+                                            alt="Alfamart Jl. Bantar Gebang Setu No.27" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 px-5">
+                                    <h2 class="text-balance text-lg font-bold text-red-900">Alfamart Jl. Bantar Gebang 5</h2>
+                                    <p class="text-sm text-gray-700">Jl. Bantar Gebang Setu No.27, RT.001/RW.007,
+                                        Padurenan, Kec. Mustika Jaya, Kota Bks, Jawa Barat 16340</p>
+                                    <div class="flex flex-col text-sm text-gray-600">
+                                        <p><strong>Latitude:</strong> -6.316650</p>
+                                        <p><strong>Longitude:</strong> 107.009339</p>
+                                    </div>
+                                    <p class="text-sm text-gray-600"><strong>Fasilitas:</strong> ATM BCA dan Tempat
+                                        Parkir</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- LOCATION LIST END -->
+                </div>
+            </section>
+            <footer class="relative z-10 w-full overflow-hidden mx-auto bg-[#290707] -mt-[10px] pt-[10px]">
+                <div class="flex flex-col gap-[50px] px-[75px] pb-[50px] pt-[40px] max-w-[1280px] mx-auto">
+                    <div class="flex gap-[100px] items-center">
+                        <div class="flex flex-col gap-[30px]">
+                            <a href="#"
+                                class="text-red-700 font-bold flex text-2xl hover:text-blue-700 transition-all duration-200">
+                                Info
+                                <span class="text-white hover:text-blue-700 transition-all duration-200">Alfa</span>
+                            </a>
+                            <p class="font-medium text-weserve-light leading-[28px]">Website Terbaik dalam menyediakan
+                                <br>Lokasi IndoAlfa di Jakarta Barat.
+                            </p>
+                            <div class="flex gap-[14px] items-center">
+                                <a href="#" class="bg-white rounded-full p-[10px]">
+                                    <img src="/src/assets/images/icons/sms.svg" class="w-[24px] h-[24px]" alt="icon">
+                                </a>
+                                <a href="#" class="bg-white rounded-full p-[10px]">
+                                    <img src="/src/assets/images/icons/global-purple.svg" class="w-[24px] h-[24px]"
+                                        alt="icon">
+                                </a>
+                                <a href="#" class="bg-white rounded-full p-[10px]">
+                                    <img src="/src/assets/images/icons/call.svg" class="w-[24px] h-[24px]" alt="icon">
+                                </a>
+                                <a href="#" class="bg-white rounded-full p-[10px]">
+                                    <img src="/src/assets/images/icons/video-play.svg" class="w-[24px] h-[24px]"
+                                        alt="icon">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-[70px] content-center justify-end">
+                            <div class="flex flex-col gap-[30px]">
+                                <h4 class="text-white font-bold text-[18px]">Products</h4>
+                                <div class="flex flex-col gap-4">
+                                    <a href="#" class="text-weserve-light font-medium">Makanan</a>
+                                    <a href="#" class="text-weserve-light font-medium">Minuman</a>
+                                    <a href="#" class="text-weserve-light font-medium">Produk Kecantikan</a>
+                                    <a href="#" class="text-weserve-light font-medium">Frozen Foods</a>
+                                    <a href="#" class="text-weserve-light font-medium">Daily Needs</a>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-[30px]">
+                                <h4 class="text-white font-bold text-[18px]">Resouces</h4>
+                                <div class="flex flex-col gap-4">
+                                    <a href="#" class="text-weserve-light font-medium">Support 24/7</a>
+                                    <a href="#" class="text-weserve-light font-medium">Help Center</a>
+                                    <a href="#" class="text-weserve-light font-medium">Peta Interaktif</a>
+                                    <a href="#" class="text-weserve-light font-medium">Blog & Tips</a>
+                                    <a href="#" class="text-weserve-light font-medium">About Us</a>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-[30px]">
+                                <h4 class="text-white font-bold text-[18px]">Company</h4>
+                                <div class="flex flex-col gap-4">
+                                    <a href="#" class="text-weserve-light font-medium">Privacy & Policy</a>
+                                    <a href="#" class="text-weserve-light font-medium">Terms and Conditions</a>
+                                    <a href="#" class="text-weserve-light font-medium">Investor Relations</a>
+                                    <a href="#" class="text-weserve-light font-medium">Join With Us</a>
+                                    <a href="#" class="text-weserve-light font-medium">Our Statistics</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-weserve-light font-medium">All Rights Reserved • Copyright InfoAlfa 2024
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Alpine JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/src/js/script.js"></script>
+    <script src="/src/js/swiper.js"></script>
+
+    <!-- Jquery script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <!-- Leaflet Script -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-minimap/dist/Control.MiniMap.min.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+    <script src="/src/assets/gis/js/leaflet.groupedlayercontrol.js"></script>
+    <script src="/src/assets/gis/js/L.Control.ZoomBar.js"></script>
+    <script src="/src/assets/gis/js/Leaflet.Coordinates-0.1.5.min.js"></script>
+
+    <script src="/src/js/leaflet/layer.js"></script>
+    <script src="/src/js/map-gis.js"></script>
+</body>
+
+</html>
